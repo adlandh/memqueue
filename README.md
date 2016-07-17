@@ -1,2 +1,2 @@
 # memqueue
-Memcached based queue
+Simple Memcached based queue
