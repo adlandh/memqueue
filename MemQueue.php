@@ -85,4 +85,13 @@ class MemQueue
 
     }
 
+    /**
+     * @return mixed
+     */
+
+    public function pop()
+    {
+
+    }
+
 }
