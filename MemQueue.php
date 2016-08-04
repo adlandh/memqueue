@@ -10,10 +10,10 @@ namespace MemQueue;
 
 class MemQueue
 {
-    private $queue_name;
-    private $mc;
-    private $error_code;
-    private $error_line;
+    protected $queue_name;
+    protected $mc;
+    protected $error_code;
+    protected $error_line;
 
     const QUERY_IS_BUSY=1001;
     const SUCCESS=1000;
@@ -256,7 +256,7 @@ class MemQueue
      * @return mixed
      */
 
-    private function getSem()
+    protected function getSem()
     {
         return $this->getVal("sem");
     }
@@ -266,7 +266,7 @@ class MemQueue
      * @return mixed
      */
 
-    private function setSem($val)
+    protected function setSem($val)
     {
         return $this->setVal("sem",$val,1);
     }
@@ -275,7 +275,7 @@ class MemQueue
      * @return mixed
      */
 
-    private function getKey()
+    protected function getKey()
     {
         return $this->getVal("key");
     }
@@ -284,7 +284,7 @@ class MemQueue
      * @return mixed
      */
 
-    private function setKey($val)
+    protected function setKey($val)
     {
         return $this->setVal("key",$val);
     }
@@ -293,7 +293,7 @@ class MemQueue
      * @return mixed
      */
 
-    private function getVal($key)
+    protected function getVal($key)
     {
         if(!($val=$this->mc->get($this->queue_name."_".$key)))
         {
@@ -312,7 +312,7 @@ class MemQueue
     }
 
 
-    private function setVal($key,$val,$ttl=0)
+    protected function setVal($key,$val,$ttl=0)
     {
         if(!$this->mc->set($this->queue_name."_".$key,$val,$ttl))
         {
@@ -323,7 +323,7 @@ class MemQueue
         return true;
     }
 
-    private function getElem($key)
+    public function getElem($key)
     {
         if(!($val=$this->mc->get($this->queue_name."_".$key)))
         {
@@ -341,7 +341,7 @@ class MemQueue
         return $val;
     }
 
-    private function setElem($key,$val)
+    public function setElem($key,$val)
     {
         return $this->setVal($key,$val);
     }
