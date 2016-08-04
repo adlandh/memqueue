@@ -8,6 +8,7 @@
 
 namespace MemQueue;
 
+
 class MemQueue
 {
     protected $queue_name;
@@ -222,7 +223,7 @@ class MemQueue
                 $this->error_line = __LINE__;
                 return false;
             }
-         }
+        }
 
         if(!$this->setSem(0))
         {
@@ -240,7 +241,7 @@ class MemQueue
 
     public function getLastError()
     {
-       return $this->error_code;
+        return $this->error_code;
     }
 
     /**
@@ -281,6 +282,7 @@ class MemQueue
     }
 
     /**
+     * @param $val - value to store
      * @return mixed
      */
 
@@ -290,6 +292,7 @@ class MemQueue
     }
 
     /**
+     * @param $key - key
      * @return mixed
      */
 
@@ -311,6 +314,12 @@ class MemQueue
         return $val;
     }
 
+    /**
+     * @param $key - key
+     * @param $val - value to store
+     * @param $ttl - TTL of value
+     * @return mixed
+     */
 
     protected function setVal($key,$val,$ttl=0)
     {
@@ -322,6 +331,11 @@ class MemQueue
 
         return true;
     }
+
+    /**
+     * @param $key - key
+     * @return mixed
+     */
 
     public function getElem($key)
     {
@@ -341,10 +355,18 @@ class MemQueue
         return $val;
     }
 
-    public function setElem($key,$val)
-    {
-        return $this->setVal($key,$val);
-    }
 
+
+    /**
+     * @param $key - key
+     * @param $val - value to store
+     * @return mixed
+     */
+
+
+    public function setElem($key,$val,$ttl=0)
+    {
+        return $this->setVal($key,$val,$ttl);
+    }
 
 }
