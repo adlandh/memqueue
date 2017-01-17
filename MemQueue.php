@@ -6,10 +6,10 @@
  * Time: 12:56
  */
 
-namespace MemQueue;
+namespace memqueue;
 
 
-class MemQueue
+class memqueue
 {
     protected $queue_name;
     protected $mc;

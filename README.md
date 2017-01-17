@@ -5,7 +5,7 @@ Simple Memcached based queue
 
 require_once("MemQueue.php");
 
-$mq=new MemQueue\MemQueue("my_queue"); //prefix for queue
+$mq=new memqueue\memqueue("my_queue"); //prefix for queue
 
 $mq->push("test1");
 $mq->push("test2");
