@@ -1,0 +1,21 @@
+{
+  "name": "MemQueue/MemQueue",
+  "type": "library",
+  "description": "Simple Memcached based queue",
+  "keywords": ["memcached","queue"],
+  "homepage": "https://github.com/adlandh/memqueue",
+  "license": "GPL-3.0",
+  "authors": [
+    {
+      "name": "Adlan DH",
+      "email": "adlandh@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.0"
+  },
+  "autoload": {
+    "files": ["MemQueue.php"]
+  }
+}
